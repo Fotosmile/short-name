@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "short-name-derive",
+    "short-name-traits",
+]
