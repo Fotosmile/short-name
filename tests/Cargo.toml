@@ -1,0 +1,9 @@
+[package]
+name = "tests"
+version = "0.1.0"
+authors = ["Vladyslav Hordiienko <hord.vlad@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+short-name-derive = { path = "../short-name-derive" }
+short-name-traits = { path = "../short-name-traits" }
