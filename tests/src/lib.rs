@@ -60,27 +60,6 @@ pub struct VariantImitation {
 }
 
 #[test]
-fn as_short_name_for_struct_without_fields() {
-    let no_fields_struct = NoFieldsStruct::default();
-
-    assert_eq!("NoFieldsStruct", no_fields_struct.as_short_name());
-}
-
-#[test]
-fn as_short_name_for_struct_with_unnamed_field() {
-    let unnamed_fields_struct = UnnamedFieldsStruct::default();
-
-    assert_eq!("UnnamedFieldsStruct", unnamed_fields_struct.as_short_name());
-}
-
-#[test]
-fn as_short_name_for_struct_with_named_field() {
-    let named_fields_struct = NamedFieldsStruct::default();
-
-    assert_eq!("NamedFieldsStruct", named_fields_struct.as_short_name());
-}
-
-#[test]
 fn as_short_name_for_enum_with_unnamed_variants() {
     let unnamed_variant1 = UnnamedVariantsEnum::UnnamedVariant1(VariantImitation::default());
     let unnamed_variant2 =
@@ -88,9 +67,15 @@ fn as_short_name_for_enum_with_unnamed_variants() {
     let unnamed_variant3 =
         UnnamedVariantsEnum::TheLastOneUnnamedVariant(VariantImitation::default());
 
-    assert_eq!("UnnamedVariant1", unnamed_variant1.as_short_name());
-    assert_eq!("AnotherOneUnnamedVariant", unnamed_variant2.as_short_name());
-    assert_eq!("TheLastOneUnnamedVariant", unnamed_variant3.as_short_name());
+    assert_eq!("Unnamed Variant1", unnamed_variant1.as_short_name());
+    assert_eq!(
+        "Another One Unnamed Variant",
+        unnamed_variant2.as_short_name()
+    );
+    assert_eq!(
+        "The Last One Unnamed Variant",
+        unnamed_variant3.as_short_name()
+    );
 }
 
 #[test]
@@ -108,9 +93,9 @@ fn as_short_name_for_enum_with_named_variants() {
         _field3: VariantImitation::default(),
     };
 
-    assert_eq!("NamedVariant1", named_variant1.as_short_name());
-    assert_eq!("AnotherOneNamedVariant", named_variant2.as_short_name());
-    assert_eq!("TheLastOneNamedVariant", named_variant3.as_short_name());
+    assert_eq!("Named Variant1", named_variant1.as_short_name());
+    assert_eq!("Another One Named Variant", named_variant2.as_short_name());
+    assert_eq!("The Last One Named Variant", named_variant3.as_short_name());
 }
 
 #[test]
@@ -119,9 +104,9 @@ fn as_short_name_for_enum_with_units() {
     let unit_variant2 = UnitsEnum::AnotherOneVariantUnit;
     let unit_variant3 = UnitsEnum::TheLastOneVariantUnit;
 
-    assert_eq!("VariantUnit1", unit_variant1.as_short_name());
-    assert_eq!("AnotherOneVariantUnit", unit_variant2.as_short_name());
-    assert_eq!("TheLastOneVariantUnit", unit_variant3.as_short_name());
+    assert_eq!("Variant Unit1", unit_variant1.as_short_name());
+    assert_eq!("Another One Variant Unit", unit_variant2.as_short_name());
+    assert_eq!("The Last One Variant Unit", unit_variant3.as_short_name());
 }
 
 #[test]
@@ -133,7 +118,31 @@ fn as_short_name_for_enum_with_mixed_variants() {
     };
     let mixed_variant3 = UnitsEnum::TheLastOneVariantUnit;
 
-    assert_eq!("UnnamedVariant1", mixed_variant1.as_short_name());
-    assert_eq!("AnotherOneNamedVariant", mixed_variant2.as_short_name());
-    assert_eq!("TheLastOneVariantUnit", mixed_variant3.as_short_name());
+    assert_eq!("Unnamed Variant1", mixed_variant1.as_short_name());
+    assert_eq!("Another One Named Variant", mixed_variant2.as_short_name());
+    assert_eq!("The Last One Variant Unit", mixed_variant3.as_short_name());
+}
+
+#[test]
+fn as_short_name_for_struct_without_fields() {
+    let no_fields_struct = NoFieldsStruct::default();
+
+    assert_eq!("No Fields Struct", no_fields_struct.as_short_name());
+}
+
+#[test]
+fn as_short_name_for_struct_with_unnamed_field() {
+    let unnamed_fields_struct = UnnamedFieldsStruct::default();
+
+    assert_eq!(
+        "Unnamed Fields Struct",
+        unnamed_fields_struct.as_short_name()
+    );
+}
+
+#[test]
+fn as_short_name_for_struct_with_named_field() {
+    let named_fields_struct = NamedFieldsStruct::default();
+
+    assert_eq!("Named Fields Struct", named_fields_struct.as_short_name());
 }
